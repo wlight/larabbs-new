@@ -19,7 +19,7 @@
                 @include('common.error')
 
                 @if($topic->id)
-                    <div action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8">
                         <input type="hidden" name="_method" value="PUT">
                 @else
                     <form action="{{ route('topics.store') }}" method="POST" accept-charset="UTF-8">
@@ -50,7 +50,7 @@
                             <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>保存</button>
                         </div>
                     </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
