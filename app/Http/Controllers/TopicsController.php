@@ -29,6 +29,7 @@ class TopicsController extends Controller
         if (!empty($topic->slug) && $topic->slug != $request->slug) {
             return redirect($topic->link(), 301);
         }
+//        dd($topic->with('replies')->get());
         return view('topics.show', compact('topic'));
     }
 
