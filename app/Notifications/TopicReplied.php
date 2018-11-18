@@ -12,6 +12,7 @@ class TopicReplied extends Notification implements ShouldQueue
 {
     use Queueable;
 
+    public $reply;
     /**
      * Create a new notification instance.
      *
@@ -19,6 +20,7 @@ class TopicReplied extends Notification implements ShouldQueue
      */
     public function __construct(Reply $reply)
     {
+//        dd($reply);
         // 注入回复实体，方便 toDatabase 方法中的使用
         $this->reply = $reply;
     }
