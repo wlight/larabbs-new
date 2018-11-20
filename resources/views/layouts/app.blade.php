@@ -17,22 +17,26 @@
 </head>
 
 <body>
-<div id="app" class="{{ route_class() }}-page">
+    <div id="app" class="{{ route_class() }}-page">
 
-    @include('layouts._header')
+        @include('layouts._header')
 
-    <div class="container">
-        @include('layouts._message')
+        <div class="container">
+            @include('layouts._message')
 
-        @yield('content')
+            @yield('content')
 
+        </div>
+
+        @include('layouts._footer')
     </div>
 
-    @include('layouts._footer')
-</div>
+    @if(config('app.debug'))
+        @include('sudosu::user-selector')
+    @endif
 
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
-@yield('scripts')
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>
