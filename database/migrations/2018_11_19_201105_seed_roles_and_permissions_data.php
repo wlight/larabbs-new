@@ -43,7 +43,7 @@ class SeedRolesAndPermissionsData extends Migration
     public function down()
     {
         // 清除缓存
-        app()['cache']->forget('spatie.permission.cache')->delete();
+        app()['cache']->forget('spatie.permission.cache');
 
         //清空所有数据表数据
         $tableNames = config('permission.table_name');
