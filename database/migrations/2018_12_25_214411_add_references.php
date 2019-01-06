@@ -1,6 +1,5 @@
 <?php
 
-use function foo\func;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -37,12 +36,12 @@ class AddReferences extends Migration
     {
         Schema::table('topics', function (Blueprint $table) {
             // 移除外键约束
-            $table->dropForeign('user_id');
+            $table->dropForeign(['user_id']);
         });
 
         Schema::table('replies', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropForeign('topic_id');
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['topic_id']);
         });
     }
 }
