@@ -34,12 +34,22 @@ $api->version('v1', [
         // 第三方登录
         $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
             ->name('api.socials.authorizations.store');
+        // 登录
+        $api->post('authorizations', 'AuthorizationsController@store')
+            ->name('api.authorizations.store');
+
         // 短信验证码
         $api->post('verificationCodes', 'VerificationCodesController@store')
             ->name('api.verificationCodes.store');
         // 用户注册
         $api->post('users', 'UsersController@store')->name('api.users.store');
 
+        // 刷新 token
+        $api->put('authorizations/current', 'AuthorizationsController@update')
+            ->name('api.authorizations.update');
+        // 删除 token
+        $api->delete('authorizations/current', 'AuthorizationsController@destroy')
+            ->name('api.authorizations.destroy');
     });
 
 });
